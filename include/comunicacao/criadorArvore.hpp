@@ -2,6 +2,7 @@
 #define CRIADOR_ARVORE
 
 #include "estruturas/arvoreTransliteracao.hpp"
+#include <string>
 
 namespace comunicacao {
     class CriadorArvore {
@@ -12,7 +13,7 @@ namespace comunicacao {
             CriadorArvore();
             ~CriadorArvore();
 
-            void criarArvore(std::string descricaoArvore); // para cada letra, inserir na árvore
+            void criarArvore(std::string descricaoArvore);
             estruturas::ArvoreTransliteracao* getArvore();
     };
 }

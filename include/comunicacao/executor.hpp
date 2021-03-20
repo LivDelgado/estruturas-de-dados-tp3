@@ -12,7 +12,7 @@ namespace comunicacao {
         private:
             CriadorArvore* criadorArvore;
             decodificacao::Decodificador* decodificador;
-            decodificacao::Codificador* Codificador;
+            decodificacao::Codificador* codificador;
             estruturas::ArvoreTransliteracao* arvore;
 
             void executarComando(Comando* comando);
@@ -23,11 +23,6 @@ namespace comunicacao {
             ~Executor();
 
             void executarComandos(Comando* comandos, int numeroComandosAExecutar);
-                /*
-                - criar arvore (chamar o criador da arvore dependendo do tipo de comando)
-                - codificar mensagem
-                - decodificar mensagem
-                */
     };
 }
 
