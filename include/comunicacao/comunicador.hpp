@@ -4,6 +4,7 @@
 #include "leitura/leitorArquivos.hpp"
 #include "conversao/conversor.hpp"
 #include "executor.hpp"
+#include "comando.hpp"
 
 #include <string>
 
