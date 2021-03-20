@@ -9,6 +9,7 @@ namespace comunicacao {
             char tipoComando;
             std::string descricaoComando;
         public:
+            Comando();
             Comando(char tipoComando, std::string descricaoComando);
             ~Comando();
             

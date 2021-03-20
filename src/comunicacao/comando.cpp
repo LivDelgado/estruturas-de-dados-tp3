@@ -2,6 +2,8 @@
 
 using namespace comunicacao;
 
+Comando::Comando() {}
+
 Comando::Comando(char tipoComando, std::string descricaoComando) {
     this->tipoComando = tipoComando;
     this->descricaoComando = descricaoComando;
