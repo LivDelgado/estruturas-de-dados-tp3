@@ -29,9 +29,7 @@ std::string Codificador::codificarCaminhoCaractere(std::string caminhoCaractereN
 }
 
 char Codificador::gerarNumeroAleatorio(bool par) {
-    srand (time(NULL));
-
-    int numeroAleatorio = rand() % 9;
+    int numeroAleatorio = rand() % 10;
     int numeroAleatorioPar = numeroAleatorio - (numeroAleatorio % 2);
     int numeroAleatorioImpar = numeroAleatorioPar + 1;
 
