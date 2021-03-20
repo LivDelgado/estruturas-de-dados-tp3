@@ -1,4 +1,5 @@
 #include "estruturas/arvoreTransliteracao.hpp"
+#include <iostream>
 
 #define DIREITA 'D'
 #define ESQUERDA 'E'
@@ -14,22 +15,19 @@ ArvoreTransliteracao::~ArvoreTransliteracao() {
 }
 
 void ArvoreTransliteracao::inserirElemento(char elemento) {
-    NodoArvore* nodoAtual = this->raiz;
+    this->inserirRecursivamente(this->raiz, elemento);
+}
 
-    NodoArvore novoNodo = NodoArvore();
-    novoNodo.setItem(elemento);
-
-    while (nodoAtual) {
-        if (nodoAtual->getItem() == elemento) {
-            return;
-        } else if (elemento < nodoAtual->getItem() || novoNodo.itemEhEspaco()) {
-            nodoAtual = nodoAtual->getNodoEsquerdo();
-        } else {
-            nodoAtual = nodoAtual->getNodoDireito();
-        }
+void ArvoreTransliteracao::inserirRecursivamente(NodoArvore* &nodo, char item) {
+    if (nodo == nullptr) {
+        nodo = new NodoArvore();
+        nodo->setItem(item);
+    } else {
+        if (item < nodo->getItem())
+            inserirRecursivamente(nodo->nodoEsquerdo, item);
+        else
+            inserirRecursivamente(nodo->nodoDireito, item);
     }
-
-    nodoAtual = &novoNodo;
 }
 
 int ArvoreTransliteracao::buscarElemento(char elemento) {
@@ -42,9 +40,9 @@ int ArvoreTransliteracao::buscarElemento(char elemento) {
         if (nodoAtual->getItem() == elemento) {
             return nodoAtual->getItemInteiro();
         } else if (elemento < nodoAtual->getItem() || nodoABuscar.itemEhEspaco()) {
-            nodoAtual = nodoAtual->getNodoEsquerdo();
+            nodoAtual = nodoAtual->nodoEsquerdo;
         } else {
-            nodoAtual = nodoAtual->getNodoDireito();
+            nodoAtual = nodoAtual->nodoDireito;
         }
     }
 
@@ -62,10 +60,10 @@ std::string ArvoreTransliteracao::buscarCaminhoElemento(char elemento) {
         if (nodoAtual->getItem() == elemento) {
             return caminhoPercorrido;
         } else if (elemento < nodoAtual->getItem() || nodoABuscar.itemEhEspaco()) {
-            nodoAtual = nodoAtual->getNodoEsquerdo();
+            nodoAtual = nodoAtual->nodoEsquerdo;
             caminhoPercorrido += ESQUERDA;
         } else {
-            nodoAtual = nodoAtual->getNodoDireito();
+            nodoAtual = nodoAtual->nodoDireito;
             caminhoPercorrido += DIREITA;
         }
     }
@@ -81,11 +79,24 @@ char ArvoreTransliteracao::buscarElementoPorCaminho(std::string caminho) {
     }
     for (char letra : caminho) {
         if (letra == ESQUERDA) {
-            nodoAtual = nodoAtual->getNodoEsquerdo();
+            nodoAtual = nodoAtual->nodoEsquerdo;
         } else {
-            nodoAtual = nodoAtual->getNodoDireito();
+            nodoAtual = nodoAtual->nodoDireito;
         }
     }
 
     return nodoAtual->getItem();
+}
+
+void ArvoreTransliteracao::imprimirArvore() {
+    caminhamentoCentral(this->raiz);
+    std::cout << std::endl;
+}
+
+void ArvoreTransliteracao::caminhamentoCentral(NodoArvore *nodoAtual){
+    if (nodoAtual != nullptr) {
+        caminhamentoCentral(nodoAtual->nodoEsquerdo);
+        std::cout << nodoAtual->getItem();
+        caminhamentoCentral(nodoAtual->nodoDireito);
+    }
 }

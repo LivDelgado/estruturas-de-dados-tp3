@@ -30,7 +30,7 @@ comunicacao::Comando* Conversor::converterStringEmComando(std::string stringACon
 
     int contadorColunas = 0;
 
-    while (getline(linha, valor, ' ')) {
+    while (getline(linha, valor, ':')) {
         if (valor.empty()) {
             break;
         }
@@ -38,7 +38,7 @@ comunicacao::Comando* Conversor::converterStringEmComando(std::string stringACon
         if (contadorColunas == 0) {
             tipoComando = valor[0];
         } else if (contadorColunas == 1) {
-            descricaoComando = valor;
+            descricaoComando = valor.substr(1, valor.length() - 1);
         } else {
             break;
         }

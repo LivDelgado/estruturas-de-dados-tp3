@@ -8,21 +8,15 @@ namespace estruturas {
     class NodoArvore {
         private:
             char item;
-            NodoArvore* nodoEsquerdo;
-            NodoArvore* nodoDireito;
-
         public:
             NodoArvore();
             ~NodoArvore();
 
+            NodoArvore* nodoEsquerdo;
+            NodoArvore* nodoDireito;
+
             void setItem(char item);
-            void setNodoEsquerdo(NodoArvore* nodo);
-            void setNodoDireito(NodoArvore* nodo);
-
             char getItem();
-            NodoArvore* getNodoEsquerdo();
-            NodoArvore* getNodoDireito();
-
             bool itemEhEspaco();
             int getItemInteiro();
     };

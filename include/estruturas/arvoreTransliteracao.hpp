@@ -8,6 +8,8 @@ namespace estruturas {
     class ArvoreTransliteracao {
         private:
             NodoArvore* raiz;
+            void inserirRecursivamente(NodoArvore* &nodo, char item);
+            void caminhamentoCentral(NodoArvore* nodoAtual);
 
         public:
             ArvoreTransliteracao();
@@ -18,6 +20,7 @@ namespace estruturas {
             std::string buscarCaminhoElemento(char elemento);
             char buscarElementoPorCaminho(std::string caminho);
             NodoArvore* getRaiz();
+            void imprimirArvore();
     };
 }
 
