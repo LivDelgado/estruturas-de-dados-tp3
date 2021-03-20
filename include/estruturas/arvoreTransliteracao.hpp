@@ -10,6 +10,8 @@ namespace estruturas {
             NodoArvore* raiz;
             void inserirRecursivamente(NodoArvore* &nodo, char item);
             void caminhamentoCentral(NodoArvore* nodoAtual);
+            void limpar();
+            void apagarRecursivamente(NodoArvore* nodo);
 
         public:
             ArvoreTransliteracao();

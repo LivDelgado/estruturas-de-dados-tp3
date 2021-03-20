@@ -11,7 +11,20 @@ ArvoreTransliteracao::ArvoreTransliteracao() {
 }
 
 ArvoreTransliteracao::~ArvoreTransliteracao() {
+    this->limpar();
+}
+
+void ArvoreTransliteracao::limpar() {
+    this->apagarRecursivamente(this->raiz);
     delete this->raiz;
+}
+
+void ArvoreTransliteracao::apagarRecursivamente(NodoArvore* nodo) {
+    if (nodo != nullptr) {
+        apagarRecursivamente(nodo->nodoEsquerdo);
+        apagarRecursivamente(nodo->nodoDireito);
+        delete nodo;
+    }
 }
 
 void ArvoreTransliteracao::inserirElemento(char elemento) {
