@@ -2,7 +2,6 @@
 
 #define DIREITA 'D'
 #define ESQUERDA 'E'
-#define ESPACO 95
 
 using namespace estruturas;
 
@@ -72,4 +71,21 @@ std::string ArvoreTransliteracao::buscarCaminhoElemento(char elemento) {
     }
 
     return "";
+}
+
+char ArvoreTransliteracao::buscarElementoPorCaminho(std::string caminho) {
+    NodoArvore* nodoAtual = this->raiz;
+
+    if (caminho == "") {
+        return this->raiz->getItem();
+    }
+    for (char letra : caminho) {
+        if (letra == ESQUERDA) {
+            nodoAtual = nodoAtual->getNodoEsquerdo();
+        } else {
+            nodoAtual = nodoAtual->getNodoDireito();
+        }
+    }
+
+    return nodoAtual->getItem();
 }

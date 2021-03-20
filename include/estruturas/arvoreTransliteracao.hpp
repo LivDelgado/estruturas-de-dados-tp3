@@ -16,6 +16,8 @@ namespace estruturas {
             void inserirElemento(char elemento);
             int buscarElemento(char elemento);
             std::string buscarCaminhoElemento(char elemento);
+            char buscarElementoPorCaminho(std::string caminho);
+            NodoArvore* getRaiz();
     };
 }
 

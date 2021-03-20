@@ -8,6 +8,8 @@ namespace decodificacao {
     class Codificador {
         private:
             estruturas::ArvoreTransliteracao* arvore;
+            std::string codificarCaminhoCaractere(std::string caminhoCaractereNaArvore);
+            char gerarNumeroAleatorio(bool par);
         
         public:
             Codificador(estruturas::ArvoreTransliteracao* arvore);
