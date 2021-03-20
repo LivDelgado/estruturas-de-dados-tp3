@@ -36,4 +36,6 @@ std::string Decodificador::decodificarMensagem(std::string mensagem) {
             mensagemDecodificada += this->arvore->buscarElementoPorCaminho(descricaoCaminho);
         }
     }
+
+    return mensagemDecodificada;
 }
