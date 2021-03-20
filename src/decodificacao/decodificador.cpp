@@ -15,7 +15,7 @@ Decodificador::~Decodificador() {
 }
 
 std::string Decodificador::decodificarMensagem(std::string mensagem) {
-    std::istringstream linha(mensagem);
+    std::istringstream linha(mensagem.substr(1, mensagem.length()-1));
     std::string valor;
     
     std::string mensagemDecodificada = "";
