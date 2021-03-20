@@ -12,7 +12,7 @@ comunicacao::Comando* Conversor::converterStringsEmComandos(std::string* textoAC
         throw "Não há nenhum comando a ser executado!";
     }
 
-    comunicacao::Comando comandos[numeroLinhas];
+    comunicacao::Comando* comandos = new comunicacao::Comando[numeroLinhas];
 
     for (int comandoAtual = 0; comandoAtual < numeroLinhas; comandoAtual++){
         comandos[comandoAtual] = *(this->converterStringEmComando(textoAConverter[comandoAtual]));

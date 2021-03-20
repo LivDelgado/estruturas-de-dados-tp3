@@ -15,3 +15,7 @@ void CriadorArvore::criarArvore(std::string descricaoArvore) {
         this->arvore->inserirElemento(caractere);
     }
 }
+
+estruturas::ArvoreTransliteracao* CriadorArvore::getArvore() {
+    return this->arvore;
+}

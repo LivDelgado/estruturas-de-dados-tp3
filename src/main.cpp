@@ -1,6 +1,8 @@
 #include <cstdlib>
 #include <iostream>
 
+#include "comunicacao/comunicador.hpp"
+
 int main(int argc, char* argv[]) {
     std::system("clear");
 
@@ -13,7 +15,8 @@ int main(int argc, char* argv[]) {
     std::string caminhoArquivo = argv[1];
 
     try {
-        // chamar comunicador
+        comunicacao::Comunicador* comunicador = new comunicacao::Comunicador();
+        comunicador->estabelecerComunicacaoEntreNaveECentral(caminhoArquivo);
     } catch (char const* excecao){
         std::cout << excecao << std::endl;
         return 0;

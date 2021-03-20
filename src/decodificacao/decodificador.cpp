@@ -27,7 +27,7 @@ std::string Decodificador::decodificarMensagem(std::string mensagem) {
             std::string descricaoCaminho = "";
             for (char caractere : valor) {
                 int numero = caractere - '0';
-                if (numero % 0 == 0) {
+                if (numero % 2 == 0) {
                     descricaoCaminho += DIREITA;
                 } else {
                     descricaoCaminho += ESQUERDA;
