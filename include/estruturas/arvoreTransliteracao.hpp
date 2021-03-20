@@ -2,6 +2,7 @@
 #define ARVORE_TRANSLITERACAO
 
 #include "nodoArvore.hpp"
+#include <string>
 
 namespace estruturas {
     class ArvoreTransliteracao {
@@ -13,6 +14,8 @@ namespace estruturas {
             ~ArvoreTransliteracao();
 
             void inserirElemento(char elemento);
+            int buscarElemento(char elemento);
+            std::string buscarCaminhoElemento(char elemento);
     };
 }
 
