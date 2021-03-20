@@ -35,8 +35,12 @@ char Codificador::gerarNumeroAleatorio(bool par) {
     int numeroAleatorioPar = numeroAleatorio - (numeroAleatorio % 2);
     int numeroAleatorioImpar = numeroAleatorioPar + 1;
 
-    if (par) return numeroAleatorioPar;
-    return numeroAleatorioImpar;
+    if (par)
+        numeroAleatorio = numeroAleatorioPar;
+    else
+        numeroAleatorio = numeroAleatorioImpar;
+
+    return numeroAleatorio + '0';
 }
 
 std::string Codificador::codificarMensagem(std::string mensagem) {
